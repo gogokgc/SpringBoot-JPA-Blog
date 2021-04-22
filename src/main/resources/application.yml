@@ -19,13 +19,13 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create  # create 로 설정해놓으면 프로젝트가 실행할때(마다) 새로운 테이블 생성함으로 첫 실행이후 UPDATE 로 수정해야한다
       naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      use-new-id-generator-mappings: false
-    show-sql: true
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  # model 에 정의해놓은 클래스, 메소드 명대로 테이블, 컬럼명을 설정해준다.
+      use-new-id-generator-mappings: false  # true : jpa의 기본 넘버링 전략을 사용한다. // false :  jpa의 기본 넘버링 전략을 사용하지 않는다. 
+    show-sql: true  # true - 콘솔창에 sql 문장을 보여준다
     properties:
-      hibernate.format_sql: true
+      hibernate.format_sql: true  # 콘솔창에 보여지는 sql 문을 가독성 좋게 정렬해준다.
 
   jackson:
     serialization:
