@@ -32,7 +32,7 @@ public class DummyControllerTest {
 	// save함수는 id를 전달하면 해당 id에 대한 데이터가 있으면 update를 해주고
 	// save함수는 id를 전달하면 해당 id에 대한 데이터가 없으면 insert를 해요.
 	// email, password
-	@Transactional
+	@Transactional // 함수 종료시에 자동 commit 이 됨.
 	@PutMapping("/dummy/user/{id}")
 	public User updateUser(@PathVariable int id, @RequestBody User requestUser) { //@RequestBody는 클라이언트가 전송하는 Json(application/json) 형태의 HTTP Body 내용을 Java Object로 변환시켜주는 역할(message Converter 의 jackson 라이브러리)을 한다.
 		System.out.println("id : " + id);
@@ -47,7 +47,7 @@ public class DummyControllerTest {
 		
 //		requestUser.setId(id);
 //		userRepository.save(user);
-		// 더티체킹
+		// 더티체킹 // @Transactional 이 종료될때 데이터의 변경을 감지하여 DB에 수정을 해준다.
 		return null;
 	}
 
