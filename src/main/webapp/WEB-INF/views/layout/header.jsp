@@ -20,8 +20,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="/user/login">LogIn</a></li>
-				<li class="nav-item"><a class="nav-link" href="/user/join">Join
+				<li class="nav-item"><a class="nav-link" href="/blog/user/loginForm">LogIn</a></li>
+				<li class="nav-item"><a class="nav-link" href="/blog/user/joinForm">Join
 						Membership</a></li>
 			</ul>
 		</div>
