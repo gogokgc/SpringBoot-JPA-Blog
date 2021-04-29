@@ -29,7 +29,7 @@ let index = {
 			// 요청 완료시
 			alert("Member registration completed");
 			console.log(resp);
-			//location.href="/blog";
+			location.href="/blog";
 		}).fail(function(error){
 			// 요청 실패시
 			alert(JSON.stringify(error));
