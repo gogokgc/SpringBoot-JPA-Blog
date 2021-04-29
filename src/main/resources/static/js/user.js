@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click", ()=>{ // function(){} , ()=>{} this를 바인딩하기 위해서!! 
 			this.save();
 		});
+		$("#btn-login").on("click", ()=>{ // function(){} , ()=>{} this를 바인딩하기 위해서!! 
+			this.login();
+		});
 	},
 	
 	save: function(){
@@ -29,6 +32,32 @@ let index = {
 			// 요청 완료시
 			alert("Member registration completed");
 			console.log(resp);
+			location.href="/blog";
+		}).fail(function(error){
+			// 요청 실패시
+			alert(JSON.stringify(error));
+		});
+	},
+	/////////////////////////////////////////
+	/////////////////////////////////////////
+	
+	login: function(){
+		let data = {
+			username: $("#username").val(),
+			password: $("#password").val(),
+		};
+		
+		$.ajax({
+			// login 수행 요청
+			type: "POST",
+			url: "/blog/api/user/login",
+			data: JSON.stringify(data), 
+			contentType: "application/json; charset=utf-8", 
+			dataType: "json" 
+		}).done(function(resp){
+			// 요청 완료시
+			alert("Login completed");
+			//console.log(resp);
 			location.href="/blog";
 		}).fail(function(error){
 			// 요청 실패시

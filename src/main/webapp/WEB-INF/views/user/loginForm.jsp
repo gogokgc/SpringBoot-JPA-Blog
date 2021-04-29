@@ -7,7 +7,7 @@
 
 <div class="container">
 
-	<form action="/action_page.php">
+	<form>
 	
 		<div class="form-group">
 			<label for="username">username:</label> <input type="text" class="form-control" placeholder="Enter username" id="username">
@@ -21,11 +21,14 @@
 			<label class="form-check-label"> <input class="form-check-input" type="checkbox"> Remember me</label>
 		</div>
 		
-		<button type="submit" class="btn btn-primary">Login</button>
 		
 	</form>
 
+		<button id="btn-login" class="btn btn-primary">Login</button>
+		
 </div>
+
+<script src="/blog/js/user.js"></script>
 
 <!-- footer part -->
 

@@ -1,9 +1,9 @@
 package com.kgc.blog.service;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kgc.blog.model.User;
 import com.kgc.blog.repository.UserRepository;
@@ -13,17 +13,15 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Transactional
-	public int joinMembership(User user) {
-		try {
-		userRepository.save(user);
-		return 1;
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("UserService : joinMembership : " + e.getMessage());
-			return -1;
-		}
+	public void joinMembership(User user) {
+			userRepository.save(user);
 	}
-	
+
+	@Transactional(readOnly = true) //select 할때 트랜잭션 시작, 서비스 종료시에 트랜잭션 종료 (정합성)
+	public User login(User user) {
+		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
+
 }
