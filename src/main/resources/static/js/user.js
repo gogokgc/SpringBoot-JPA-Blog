@@ -24,7 +24,7 @@ let index = {
 		$.ajax({
 			// 회원가입 수행 요청
 			type: "POST",
-			url: "/blog/api/user",
+			url: "/api/user",
 			data: JSON.stringify(data), //http body 데이터 //위의 let data 는 자바스크립스 오브젝트로 자바에서 이해할수있게 json으로 변형시켜 전달
 			contentType: "application/json; charset=utf-8", // 바디데이터가 어떤 타입인지 (MIME)
 			dataType: "json" // 요청을 서버로 해서 응답이 왔을때 기본적으로 모든것이 문자열 (생긴게 json이라면)=>자바스크립트 오브젝트로 변경
@@ -32,7 +32,7 @@ let index = {
 			// 요청 완료시
 			alert("Member registration completed");
 			console.log(resp);
-			location.href="/blog";
+			location.href="/";
 		}).fail(function(error){
 			// 요청 실패시
 			alert(JSON.stringify(error));
@@ -50,7 +50,7 @@ let index = {
 		$.ajax({
 			// login 수행 요청
 			type: "POST",
-			url: "/blog/api/user/login",
+			url: "/api/user/login",
 			data: JSON.stringify(data), 
 			contentType: "application/json; charset=utf-8", 
 			dataType: "json" 
@@ -58,7 +58,7 @@ let index = {
 			// 요청 완료시
 			alert("Login completed");
 			//console.log(resp);
-			location.href="/blog";
+			location.href="/";
 		}).fail(function(error){
 			// 요청 실패시
 			alert(JSON.stringify(error));
