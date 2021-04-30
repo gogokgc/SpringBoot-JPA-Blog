@@ -36,8 +36,8 @@
 		<c:choose>
 			<c:when test="${empty principal }">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="/loginForm">LogIn</a></li>
-					<li class="nav-item"><a class="nav-link" href="/joinForm">Join Membership</a></li>
+					<li class="nav-item"><a class="nav-link" href="/auth/loginForm">LogIn</a></li>
+					<li class="nav-item"><a class="nav-link" href="/auth/joinForm">Join Membership</a></li>
 				</ul>
 			</c:when>
 			

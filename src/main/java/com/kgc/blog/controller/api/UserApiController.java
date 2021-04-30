@@ -21,7 +21,7 @@ public class UserApiController {
 	
 
 
-	@PostMapping("/api/user")
+	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) { // user 로 받는값 username, password, email
 		
 		System.out.println("UserApiController : Calling save method sucessfully");
@@ -34,19 +34,26 @@ public class UserApiController {
 
 	}
 	
-//	// 기본적인 로그인 기능 구현방법
-//	@PostMapping("/api/user/login")
-//	public ResponseDto<Integer> login(@RequestBody User user,HttpSession session){
-//		
-//		System.out.println("UserApiController : Calling login method sucessfully");
-//		
-//		User principal = userService.login(user); // principal(접근주체)
-//		
-//		if(principal != null) {
-//			session.setAttribute("principal", principal);
-//		}
-//		
-//		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
-//	}
+
 
 }
+
+
+
+
+
+
+//// 기본적인 로그인 기능 구현방법
+//@PostMapping("/api/user/login")
+//public ResponseDto<Integer> login(@RequestBody User user,HttpSession session){
+//	
+//	System.out.println("UserApiController : Calling login method sucessfully");
+//	
+//	User principal = userService.login(user); // principal(접근주체)
+//	
+//	if(principal != null) {
+//		session.setAttribute("principal", principal);
+//	}
+//	
+//	return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+//}
