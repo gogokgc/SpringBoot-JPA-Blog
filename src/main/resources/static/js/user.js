@@ -35,8 +35,7 @@ let index = {
 			// 요청 실패시
 			alert(JSON.stringify(error));
 		});
-	},
-	
+	}
 	
 }
 
