@@ -8,10 +8,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.kgc.blog.model.User;
 
-// 스프링 시큐리티가 로그인 요청을 가로채서 로그인을 진행하고 완료가 되면  UserDetail 타입의 오브젝트를 스프링 고유한 세션 저장소에 저장을 해준다.
+// 스프링 시큐리티가 로그인 요청을 가로채서 로그인을 진행하고 완료가 되면 UserDetail 타입의 오브젝트를 스프링 고유한 세션 저장소에 저장을 해준다.
 public class PrincipalDetail implements UserDetails{
 
-	private User user; // 컴포지션
+	private User user; // 컴포지션 : 객체를 품고있다
 
 	public PrincipalDetail(User user) {
 		this.user = user;
@@ -57,7 +57,7 @@ public class PrincipalDetail implements UserDetails{
 		return true;
 	}
 	
-	//계정의 권한목 리턴한다. (권한이 여러개 있을수 있어서 루프를 돌아야 하는데 우린는 한개만)
+	//계정의 권한을 리턴한다. (권한이 여러개 있을수 있어서 루프를 돌아야 하는데 우린는 한개만)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		

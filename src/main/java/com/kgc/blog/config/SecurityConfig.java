@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 
-	// 시큐리티가 대신 로그인 해줄때 password 를 가로채는데 해당 password 가 뭘로 해쉬가 되어 회원가입이 되엇는지 알아야 같은 해쉬로 암호화 해서 DB에 있는 해쉬랑 비교할수있음
+	// 시큐리티가 대신 로그인 해줄때 password 를 가로채는데 해당 password 가 뭘로 해쉬가 되어 회원가입이 되었는지 알아야 같은 해쉬로 암호화 해서 DB에 있는 해쉬랑 비교할수있음
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(principalDetailService).passwordEncoder(encodePWD());
@@ -49,6 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.loginPage("/auth/loginForm") // 로그인 페이지 설정
 				.loginProcessingUrl("/auth/loginProc") //스프링 시큐리티가 해당주소로 요청이 오는 로그인을 가로채서 대신 로그인
 				.defaultSuccessUrl("/"); // 로그인이 완료되면 이동할 디폴트 웹페이지 설정
-		
+//				.failureUrl("/fail"); // 로그인 요청처리 실패시
 	}
 }
