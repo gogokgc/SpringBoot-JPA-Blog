@@ -3,7 +3,6 @@ package com.kgc.blog.repository;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import com.kgc.blog.model.User;
 
@@ -12,7 +11,7 @@ import com.kgc.blog.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{  // JpaRepository - User 테이블 관리 , User 테이블의 PK 는 int 이다.
 
 	// SELECT * FROM user WHERE username = ?1;
-	Optional<User> findByUsername(String username);
+		Optional<User> findByUsername(String username);
 }
 
 
