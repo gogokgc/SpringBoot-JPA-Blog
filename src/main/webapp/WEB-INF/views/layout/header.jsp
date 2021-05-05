@@ -39,7 +39,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 
 			<c:choose>
-				<c:when test="${empty principal }">
+				<c:when test="${empty principal}">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link"
 							href="/auth/loginForm">LogIn</a></li>

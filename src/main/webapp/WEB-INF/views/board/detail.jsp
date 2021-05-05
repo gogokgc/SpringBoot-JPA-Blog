@@ -8,14 +8,22 @@
 <div class="container">
 
 	<span class="float-right">
-		<button class="btn btn-warning">Edit</button>
-		<button class="btn btn-danger">Delete</button>
+	<c:if test="${board.user.id == principal.user.id}">
+		<a id="btn-update" href="/board/${board.id}/updateForm">Edit</a>
+		<button id="btn-delete" class="btn btn-danger">Delete</button>
+	</c:if>
 	</span> <br> <br>
+	<div>
+		Posting Number : <span id="id"><i>${board.id}</i></span>
+	  	&nbsp;&nbsp;&nbsp;Writer : <span><i>${board.user.username} </i></span>
+	</div>
+	<br>
 	<div class="form-group">
-
 		<h4>${board.title}</h4>
 	</div>
+
 	<hr />
+
 	<div class="form-group">
 		<div>${board.content}</div>
 	</div>

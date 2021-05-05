@@ -27,14 +27,22 @@ public class BoardService {
 		boardRepository.save(board);
 	}
 
+	@Transactional(readOnly = true)
 	public Page<Board> list(Pageable pageable){
 		return boardRepository.findAll(pageable);
 	}
 	
+	@Transactional(readOnly = true)
 	public Board detail(int id) {
 		return boardRepository.findById(id)
 				.orElseThrow(()->{
 					return new IllegalArgumentException("Cannot find Post id");
 				});
+	}
+	
+	@Transactional
+	public void delete(int id) {
+		boardRepository.deleteById(id);
+				
 	}
 }
