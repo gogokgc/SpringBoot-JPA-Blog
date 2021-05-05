@@ -8,20 +8,20 @@
 <div class="container">
 
 	<form>
-
+		<input type="hidden" id="id" value="${board.id}" />
 		<div class="form-group">
 			<label for="title">Title</label> 
-			<input type="text" class="form-control" placeholder="Enter title" id="title">
+			<input value="${board.title}" type="text" class="form-control" placeholder="Enter title" id="title">
 		</div>
 
 		<div class="form-group text-body">
 			<label class="text-white" for="content">Content</label>
-			<textarea class="form-control summernote" rows="5" id="content"></textarea>
+			<textarea class="form-control summernote" rows="5" id="content">${board.content}</textarea>
 		</div>
 
 	</form>
 
-	<button id="btn-save" class="btn btn-primary">Save</button>
+	<button id="btn-update" class="btn btn-primary">Edit</button>
 
 </div>
 

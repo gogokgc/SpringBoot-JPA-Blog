@@ -28,7 +28,7 @@ let index = {
 			dataType: "json" // 요청을 서버로 해서 응답이 왔을때 기본적으로 모든것이 문자열 (생긴게 json이라면)=>자바스크립트 오브젝트로 변경
 		}).done(function(resp){
 			// 요청 완료시
-			alert("Member registration completed");
+			alert("Member registration complete");
 			console.log(resp);
 			location.href="/";
 		}).fail(function(error){

@@ -9,7 +9,7 @@
 
 	<span class="float-right">
 	<c:if test="${board.user.id == principal.user.id}">
-		<a id="btn-update" href="/board/${board.id}/updateForm">Edit</a>
+		<a class="btn btn-warning text-white" href="/board/${board.id}/updateForm">Edit</a>
 		<button id="btn-delete" class="btn btn-danger">Delete</button>
 	</c:if>
 	</span> <br> <br>
