@@ -28,3 +28,7 @@ Setting
 		‣   <groupId>javax.servlet</groupId>
 		‣   <artifactId>jstl</artifactId>
 		‣ </dependency>
+
+    
+    ◦ Use Bootstrap for JSP
+        
