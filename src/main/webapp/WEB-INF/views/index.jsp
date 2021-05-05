@@ -5,13 +5,13 @@
 
 <!-- header part -->
 
-<div class="container"></div>
+<div class="container">
 
 <c:forEach var="board" items="${boards.content}">
-	<div class="card m-2">
+	<div class="card m-2 bg-secondary">
 		<div class="card-body">
 			<h4 class="card-title">${board.title}</h4>
-			<a href="#" class="btn btn-primary">Detail</a>
+			<a href="/board/${board.id }" class="btn btn-primary">Detail</a>
 		</div>
 	</div>
 </c:forEach>
@@ -35,7 +35,7 @@
 	</c:otherwise>
 </c:choose>
 </ul>
-
+</div>
 <!-- footer part -->
 
 <%@ include file="layout/footer.jsp"%>
