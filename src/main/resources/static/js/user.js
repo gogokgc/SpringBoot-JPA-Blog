@@ -50,13 +50,13 @@ let index = {
 		$.ajax({
 			// 수행 요청
 			type: "PUT",
-			url: "/user/updateForm",
+			url: "/user",
 			data: JSON.stringify(data), 
 			contentType: "application/json; charset=utf-8", 
 			dataType: "json" 
 		}).done(function(resp){
 			// 요청 완료시
-			alert("Member registration complete");
+			alert("Member information modificated successfully");
 			console.log(resp);
 			location.href="/";
 		}).fail(function(error){
