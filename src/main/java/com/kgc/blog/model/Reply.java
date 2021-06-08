@@ -37,7 +37,7 @@ public class Reply {
 	
 	@ManyToOne  // Many = Reply, One = User 여러개의 답글을 하나의 유저가 작성가능하다.
 	@JoinColumn(name = "userId")
-	private User user;
+	private BlogUser user;
 	
 	@CreationTimestamp
 	private Timestamp createDate;

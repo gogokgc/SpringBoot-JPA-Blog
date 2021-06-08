@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kgc.blog.model.RoleType;
-import com.kgc.blog.model.User;
+import com.kgc.blog.model.BlogUser;
 import com.kgc.blog.repository.UserRepository;
 
 @Service
@@ -24,7 +24,7 @@ public class UserService {
 	private BCryptPasswordEncoder encoder;
 	
 	@Transactional
-	public void joinMembership(User user) {
+	public void joinMembership(BlogUser user) {
 		String rawPassword = user.getPassword(); // 원 패스워드
 		String encPassword = encoder.encode(rawPassword); // 해쉬 암호화 작업
 		user.setPassword(encPassword);
@@ -33,11 +33,11 @@ public class UserService {
 	}
 	
 	@Transactional
-	public void modifyUserInfo(User user) {
+	public void modifyUserInfo(BlogUser user) {
 		// 수정시에는 영속성 컨텍스트 User 오브젝트를 영속화 시키고, 영속화된 User 오브젝트를 수정
 		// select를 해서 User오브젝트를 DB로 부터 가져오는 이유는 영속화를 하기 위해서!!
 		// 영속화된 오브젝트를 변경하면 자동으로 DB에 update문을 날려준다.
-		User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
+		BlogUser persistance = userRepository.findById(user.getId()).orElseThrow(()->{
 			return new IllegalArgumentException("Can not find user");
 		});
 		
@@ -51,9 +51,9 @@ public class UserService {
 	}
 	
 
-//	@Transactional(readOnly = true) //select 할때 트랜잭션 시작, 서비스 종료시에 트랜잭션 종료 (정합성)
-//	public User login(User user) {
-//		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-//	}
+	@Transactional(readOnly = true) //select 할때 트랜잭션 시작, 서비스 종료시에 트랜잭션 종료 (정합성)
+	public BlogUser login(BlogUser user) {
+		return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
 
 }

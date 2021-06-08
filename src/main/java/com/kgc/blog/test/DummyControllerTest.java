@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kgc.blog.model.RoleType;
-import com.kgc.blog.model.User;
+import com.kgc.blog.model.BlogUser;
 import com.kgc.blog.repository.UserRepository;
 
 //html파일이 아니라 data를 리턴해주는 controller = RestController
@@ -47,7 +47,7 @@ public class DummyControllerTest {
 	// email, password
 	@Transactional // 함수 종료시에 자동 commit 이 됨.
 	@PutMapping("/dummy/user/{id}")
-	public User updateUser(@PathVariable int id, @RequestBody User requestUser) { // @RequestBody는 클라이언트가 전송하는
+	public BlogUser updateUser(@PathVariable int id, @RequestBody BlogUser requestUser) { // @RequestBody는 클라이언트가 전송하는
 																					// Json(application/json) 형태의 HTTP
 																					// Body 내용을 Java Object로 변환시켜주는
 																					// 역할(message Converter 의 jackson
@@ -56,7 +56,7 @@ public class DummyControllerTest {
 		System.out.println("password : " + requestUser.getPassword());
 		System.out.println("email : " + requestUser.getEmail());
 
-		User user = userRepository.findById(id).orElseThrow(() -> {
+		BlogUser user = userRepository.findById(id).orElseThrow(() -> {
 			return new IllegalArgumentException("Update Failed");
 		});
 		user.setPassword(requestUser.getPassword());
@@ -69,29 +69,29 @@ public class DummyControllerTest {
 	}
 
 	@GetMapping("/dummy/users")
-	public List<User> list() {
+	public List<BlogUser> list() {
 
 		return userRepository.findAll();
 	}
 
 	// 한페이지당 2건에 데이터를 리턴받아 볼 예정
 	@GetMapping("/dummy/user")
-	public List<User> pageList(
+	public List<BlogUser> pageList(
 			@PageableDefault(size = 2, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-		Page<User> pagingUser = userRepository.findAll(pageable);
+		Page<BlogUser> pagingUser = userRepository.findAll(pageable);
 
-		List<User> users = pagingUser.getContent(); // findAll 에서 같이 가져오는 데이터중 content 데이터만 수집한다.
+		List<BlogUser> users = pagingUser.getContent(); // findAll 에서 같이 가져오는 데이터중 content 데이터만 수집한다.
 		return users;
 	}
 
 	@GetMapping("/dummy/user/{id}") // {id} 주소로 파라미터를 전달 받을수 있습니다. // http://locahost:8000/blog/dummy/user/3
-	public User detail(@PathVariable int id) { // id 파라미터를 받기위한 @PathVariable 어노테이션
+	public BlogUser detail(@PathVariable int id) { // id 파라미터를 받기위한 @PathVariable 어노테이션
 
 		// user/4을 찾으면 내가 데이터베이스에서 못찾아오게 되면 user가 null이 될 것 아냐?
 		// 그럼 return null 이 리턴이 되자나.. 그럼 프로그램에 문제가 있지 않겠니?
 		// Optional로 너의 User객체를 감싸서 가져올테니 null인지 아닌지 판단해서 return해!!
 
-		User user = userRepository.findById(id).orElseThrow(new Supplier<IllegalArgumentException>() {
+		BlogUser user = userRepository.findById(id).orElseThrow(new Supplier<IllegalArgumentException>() {
 
 			@Override
 			public IllegalArgumentException get() {
@@ -117,7 +117,7 @@ public class DummyControllerTest {
 	// http://localhost:8000/blog/dummy/join (요청)
 	// http의 body에 username, password, email 데이터를 가지고 (요청)
 	@PostMapping("/dummy/join")
-	public String join(User user) { // key=value (약속된 규칙)
+	public String join(BlogUser user) { // key=value (약속된 규칙)
 		System.out.println("username : " + user.getUsername());
 		System.out.println("password : " + user.getPassword());
 		System.out.println("email : " + user.getEmail());

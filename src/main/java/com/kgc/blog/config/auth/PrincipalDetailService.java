@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.kgc.blog.model.User;
+import com.kgc.blog.model.BlogUser;
 import com.kgc.blog.repository.UserRepository;
 
 @Service
@@ -21,7 +21,7 @@ public class PrincipalDetailService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		User principal = userRepository.findByUsername(username)
+		BlogUser principal = userRepository.findByUsername(username)
 				.orElseThrow(()->{
 					return new UsernameNotFoundException("Cannot Found this Username : " + username);
 				});

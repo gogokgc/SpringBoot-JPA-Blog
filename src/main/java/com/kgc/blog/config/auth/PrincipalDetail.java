@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.kgc.blog.model.User;
+import com.kgc.blog.model.BlogUser;
 
 import lombok.Getter;
 
@@ -14,9 +14,9 @@ import lombok.Getter;
 @Getter
 public class PrincipalDetail implements UserDetails{
 
-	private User user; // 컴포지션 : 객체를 품고있다
+	private BlogUser user; // 컴포지션 : 객체를 품고있다
 
-	public PrincipalDetail(User user) {
+	public PrincipalDetail(BlogUser user) {
 		this.user = user;
 	}
 

@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 //ORM -> Java(다른언어) Object -> 테이블로 매핑해주는 기술
 @Entity // User 클래스가 Mysql에 테이블이 생성된다
 //@DynamicInsert // insert시에 null인 필드를 제외시켜준다.
-public class User {
+public class BlogUser {
 
 	@Id // Primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 프로젝트에서 연결된 DB의 넘버링 전략을 따라간다.

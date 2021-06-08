@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kgc.blog.model.Board;
-import com.kgc.blog.model.User;
+import com.kgc.blog.model.BlogUser;
 import com.kgc.blog.repository.BoardRepository;
 
 @Service
@@ -18,7 +18,7 @@ public class BoardService {
 	private BoardRepository boardRepository;
 
 	@Transactional
-	public void write(Board board, User user) { // title, content
+	public void write(Board board, BlogUser user) { // title, content
 		
 		board.setCount(0);
 		
