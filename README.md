@@ -1,5 +1,6 @@
 # SpringBoot-JPA-Blog
 Setting
+## Maven
 
 	◦ Spring Starter Project
 		‣ Spring Boot DevTool
@@ -32,3 +33,4 @@ Setting
     
     ◦ Use Bootstrap for JSP
         
+
